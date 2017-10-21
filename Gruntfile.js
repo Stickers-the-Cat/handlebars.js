@@ -1,6 +1,17 @@
 /* eslint-disable no-process-env */
 module.exports = function(grunt) {
 
+  function babelPreset(modules) {
+    return [[
+      'env',
+      {
+        loose: true,
+        modules: modules
+      }
+    ]];
+  }
+
+
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
 
@@ -46,12 +57,11 @@ module.exports = function(grunt) {
     babel: {
       options: {
         sourceMaps: 'inline',
-        loose: ['es6.modules'],
         auxiliaryCommentBefore: 'istanbul ignore next'
       },
       amd: {
         options: {
-          modules: 'amd'
+          presets: babelPreset('amd')
         },
         files: [{
           expand: true,
@@ -63,7 +73,7 @@ module.exports = function(grunt) {
 
       cjs: {
         options: {
-          modules: 'common'
+          presets: babelPreset('commonjs')
         },
         files: [{
           cwd: 'lib/',
