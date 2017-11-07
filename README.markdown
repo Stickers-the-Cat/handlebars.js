@@ -3,6 +3,8 @@
 [![Selenium Test Status](https://saucelabs.com/buildstatus/handlebars)](https://saucelabs.com/u/handlebars)
 [![jsDelivr Hits](https://data.jsdelivr.com/v1/package/npm/handlebars/badge?style=rounded)](https://www.jsdelivr.com/package/npm/handlebars)
 
+(NOTE: this is an edit I made to the parser to allow me to precompile files with @{{foo}} instead of the normal {{foo}}, while leaving the normal {{foo}} intact for runtime! ALL TESTS WILL FAIL)
+
 Handlebars.js
 =============
 
